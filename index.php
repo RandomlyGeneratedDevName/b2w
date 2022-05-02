@@ -1,5 +1,22 @@
-<?php get_header(); ?>
-<?php get_template_part('template-parts/banner','title'); ?>
+<?php 
+
+/**
+ * The main template file
+ * 
+ * This is the most generic template file in wordpress theme
+ * and one of the two required files for a theme (the order being the style.css).
+ * It is used to display a page when nothing more specific matches a quiery.
+ * E.g, it puts together the home page when no home.php file exists.
+ * 
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * 
+ * @package bootstrap2wordpress
+ * @since 2.0
+ */
+
+get_header();
+get_template_part('template-parts/banner','title'); 
+?>
 
   <div class="content-area">
     <div class="container">
@@ -13,24 +30,21 @@
 
           while ( have_posts() ) {
 
+            the_post();
+            get_template_part( 'template-parts/content' , 'excerpt' );
             
           }
 
+
+        } else {
+
+          get_template_part( 'template-parts/content', 'none' );
 
         }
 
         ?>
 
-          <article class="post">
-            <div class="meta">
-              <span>Sep 24, 2021</span>
-            </div>
-            <h2><a href="#">Blog post title</a></h2>
-            <p class="excerpt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores veritatis expedita molestias id, dolorem sapiente quae dolores modi hic et ea, suscipit minima eligendi magnam odio reiciendis dolorum, non placeat?
-            </p>
-            <a href="#" class="read-more">Read the full post -&gt;</a>
-          </article>
+         
 
           
 
