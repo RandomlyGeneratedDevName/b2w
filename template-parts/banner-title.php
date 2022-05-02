@@ -66,7 +66,7 @@
             
             } elseif ( is_404() ) {
               ?>
-
+              <p class="tag-line sub-title">404 Error</p>
               <h1><?= esc_html_e( 'Couldn\'t Be Found', 'bootstrap2wordpress' ) ?></h1>
 
               <?php
@@ -97,10 +97,13 @@
     <div class="container">
       <div class="row flex-vertical-center">
         <div class="col-sm-6">
-          <p><strong>Want to save 20% on the course?</strong> Enter your email and we'll send you the discount code!</p>
+          <!-- <p><strong>Want to save 20% on the course?</strong> Enter your email and we'll send you the discount code!</p> -->
+
+          <p><?= wp_kses_post( get_theme_mod( 'subsribe_text', '<p><strong>Want to save 20% on the course?</strong> Enter your email and we\'ll send you the discount code!</p>' ) ) ?></p>
+
         </div>
         <div class="col-sm-6">
-          <form action="index.html" class="" method="post">
+          <!-- <form action="index.html" class="" method="post">
           	<div class="row">
           		<div class="col-lg-8">
           			<input name="test" type="text" value="">
@@ -109,7 +112,24 @@
           			<button class="btn btn-invert m-0" name="button" type="button">Subscribe</button>
           		</div>
           	</div>
-          </form>
+          </form> -->
+
+          <?php
+
+            $b2w_form_html = get_theme_mod( 'subscribe_form', '<form action="index.html" class="" method="post">
+          	<div class="row">
+          		<div class="col-lg-8">
+          			<input name="test" type="text" value="">
+          		</div>
+          		<div class="col-lg-4">
+          			<button class="btn btn-invert m-0" name="button" type="button">Subscribe</button>
+          		</div>
+          	</div>
+          </form>' );
+
+          echo $b2w_form_html;
+
+          ?>
         </div>
       </div>
     </div>
