@@ -66,3 +66,12 @@
  }
 
  add_action('wp_enqueue_scripts', 'b2w_assets');
+
+
+ /* Customer readmore text */
+
+ function b2w_excerpt_readmore( $more ) {
+   return '...';
+ }
+
+ add_filter( 'excerpt_more', 'b2w_excerpt_readmore');

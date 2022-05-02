@@ -7,13 +7,13 @@
  */
 ?>
 
-<article class="post">
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <div class="meta">
-              <span>Sep 24, 2021</span>
+              <span><?= get_the_date('M d, Y') ?></span>
             </div>
-            <h2><a href="#">Blog post title</a></h2>
+            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
             <p class="excerpt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores veritatis expedita molestias id, dolorem sapiente quae dolores modi hic et ea, suscipit minima eligendi magnam odio reiciendis dolorum, non placeat?
+            <?php force_balance_tags( the_excerpt() ); ?>
             </p>
-            <a href="#" class="read-more">Read the full post -&gt;</a>
+            <a href="<?php the_permalink(); ?>" class="read-more"><?php esc_html_e( 'Read the full post ->', 'bootstrap2wordpress' ); ?></a>
           </article>
