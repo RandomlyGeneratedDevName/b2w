@@ -45,12 +45,42 @@
             <?php
             
             } elseif ( is_home() ) {
+
+              if( $descripton ) {
+              ?>
+
+                 <p class="tag-line sub-title"><?= esc_html( $descripton ) ?></p>
+
+              <?php
+              }
+
+              ?>
+
+                <h1><?= esc_html_e( 'Bootstrap to WordPress Blog', 'bootstrap2wordpress' ) ?></h1>
+
+              <?php
            
             } elseif ( is_archive() ) {
+
+              the_archive_title( '<h1 class="page-title">', '</h1>' );
             
             } elseif ( is_404() ) {
+              ?>
+
+              <h1><?= esc_html_e( 'Couldn\'t Be Found', 'bootstrap2wordpress' ) ?></h1>
+
+              <?php
+
             
             } elseif ( is_search() ) {
+
+              $search_title = sprintf( '%s %s', __('Search results for: ', 'bootstrap2wordpress'), get_search_query() );
+
+              ?>
+
+              <h1 class="page-title"><?= esc_html( $search_title ) ?></h1>
+
+              <?php
             
             }
 
