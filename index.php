@@ -35,6 +35,8 @@ get_template_part('template-parts/banner','title');
             
           }
 
+          b2w_pagination();
+
 
         } else {
 
