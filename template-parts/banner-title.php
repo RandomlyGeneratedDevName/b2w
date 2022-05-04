@@ -30,8 +30,11 @@
 
               ?>
                 <p class="tag-line sub-title"><?= get_the_date( 'M d, Y' ) ?></p>
+                
 
               <?php
+
+              the_title('<h1 class="page-title">', '</h1>');
 
             } elseif ( ! is_front_page() && is_home() ) {
 
