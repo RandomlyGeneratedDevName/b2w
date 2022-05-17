@@ -51,3 +51,37 @@ new \Kirki\Panel(
       ],
     ]
   );
+
+    // Section -- Footer
+
+    new \Kirki\Section(
+      'b2w_footer_section',
+      [
+        'title'       => esc_html__( 'Footer', 'bootstrap2wordpress' ),
+        'description' => esc_html__( 'This is the Footer section', 'bootstrap2wordpress' ),
+        'panel'       => 'b2w_theme_option_panel',
+        'priority'    => 160,
+      ]
+    );
+
+     // Section -- Footer -- Fields
+
+  new \Kirki\Field\Textarea(
+    [
+      'settings'        => 'footer_copyright',
+      'label'           => esc_html__( 'Footer Copyright Text', 'bootstrap2wordpress' ),
+      'section'         => 'b2w_footer_section',
+      'default'         => esc_html__( 'Copyright SimpleWebsiteCR', 'bootstrap2wordpress' ),
+      'partial_refresh' => array(
+        'footer_copyright' => array(
+          'selector'        => 'footer .copyright p',
+          'render_callback' => function() {
+            return get_theme_mod('footer_copyright');
+          }
+        ),
+      ),
+    ]
+  ); 
+
+
+  // Section -- Footer -- 

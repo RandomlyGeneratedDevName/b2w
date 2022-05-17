@@ -1,4 +1,6 @@
 <footer>
+
+
     <div class="footer-calltoaction text-center">
       <div class="container">
         <div class="row">
@@ -11,8 +13,10 @@
         </div>
       </div>
     </div>
+
+    
     <div class="copyright text-center">
-      <p>&copy; Copyright Brightside Studios Inc.</p>
+      <p><?= wp_kses_post( get_theme_mod( 'footer_copyright', 'Copyright Brightsite Inc.' ) ) ?></p>
     </div>
   </footer>
 
